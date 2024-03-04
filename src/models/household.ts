@@ -14,8 +14,8 @@
 // import {User} from "./user";
 // import {Commitment} from "./commitment";
 // import {Saint} from "./saint";
-// import {Pillar} from "./pillar";
-// import {Aesthetics} from "./aesthetics";
+import {Pillar} from "./pillar";
+import {Aesthetics} from "./aesthetics";
 // import {Member} from "./member";
 // import {Photo} from "./photo";
 // import {News} from "./news";
@@ -32,13 +32,13 @@ export interface Household {
   // Household Year
   year: number,
   // Household Dorm Location
-  location: string,
+  location?: string,
   // Household Verse
   verse: string,
   // Household Saints
 //  saints: Saint[],
   // Household Pillars
-//  pillars: Pillar[],
+  pillars: Pillar[],
   //Household Commitments
 //  commitments: Commitment[],
   // Household Covenant
@@ -52,7 +52,7 @@ export interface Household {
   // Household Photos
 //  photos?: Photo[],
   // Aesthetics for the Household page.
-//  aesthetics?: Aesthetics,
+  aesthetics?: Aesthetics,
   // Household News
 //  news?: News[],
   // Household Relative Path (DON'T KNOW IF IT IS USEABLE/NEEDED; REMOVE IF USELESS)
