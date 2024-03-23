@@ -1,1 +1,21 @@
-<p>create-news works!</p>
+<div>
+  <h1>Create News:</h1>
+    <p>
+      <label for="newsDate">Date: </label>
+      <input id="newsDate" [(ngModel)]="newsDate">
+    </p>
+
+    <p>
+      <label for="newsDescription">Description: </label>
+      <input id="newsDescription" [(ngModel)]="newsDescription">
+    </p>
+
+    <p>
+      <label for="newsType">Type: </label>
+      <input id="newsType" [(ngModel)]="newsType">
+    </p>
+
+    <p>
+      <input type="button" value="Add" (click)="save()">
+    </p>  
+</div>
