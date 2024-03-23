@@ -2,9 +2,7 @@
   <h1>Create News:</h1>
     <p>
       <label for="newsDate">Date: </label>
-      <input id="newsDate" [(ngModel)]="newsDate">
-    </p>
-
+      <input id="newsDate" required type="date" formControlName="newsDate">
     <p>
       <label for="newsDescription">Description: </label>
       <input id="newsDescription" [(ngModel)]="newsDescription">
