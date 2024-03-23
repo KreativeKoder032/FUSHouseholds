@@ -16,6 +16,7 @@ export class HouseholdService {
     //TODO: call the webserver
     household.id = this.nextId++;
     this.households.push(household);
+    console.log(this.households)
 
     return of(household);
   }
