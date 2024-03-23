@@ -22,9 +22,9 @@ import {Aesthetics} from "./aesthetics";
 
 export interface Household {
   // Unique ID number for this Household
-  id: number,
+  id?: number,
   // Indicates whether Household is active
-  active: boolean,
+  active?: boolean,
   // Household Name
   name: string,
   // Household Logo
@@ -38,7 +38,7 @@ export interface Household {
   // Household Saints
 //  saints: Saint[],
   // Household Pillars
-  pillars: Pillar[],
+  pillars?: Pillar[],
   //Household Commitments
 //  commitments: Commitment[],
   // Household Covenant
@@ -56,5 +56,5 @@ export interface Household {
   // Household News
 //  news?: News[],
   // Household Relative Path (DON'T KNOW IF IT IS USEABLE/NEEDED; REMOVE IF USELESS)
-  relative_path: string
+  //relative_path: string
 }
