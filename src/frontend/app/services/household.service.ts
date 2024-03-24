@@ -8,7 +8,7 @@ import { Observable, of } from 'rxjs';
 export class HouseholdService {
 
   households: Household[] = [];
-  nextId: number = 7;
+  nextId: number = 1;
 
   constructor() { }
 
@@ -16,7 +16,7 @@ export class HouseholdService {
     //TODO: call the webserver
     household.id = this.nextId++;
     this.households.push(household);
-    console.log(this.households)
+    console.log(this.nextId)
 
     return of(household);
   }
