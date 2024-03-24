@@ -33,7 +33,7 @@ export class CreateHouseholdComponent {
   //TODO: news
 
   save(): void {
-    let toSave: Household = {
+    const toSave: Household = {
       name: this.name,
       year: parseInt(this.year),
       active: true, //temporary
