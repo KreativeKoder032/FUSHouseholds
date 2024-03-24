@@ -52,5 +52,9 @@ export class CreateHouseholdComponent {
     if (this.description) {
       toSave.description = this.description;
     }
+    this.householdService.createHousehold(toSave).subscribe(household => {
+      console.log('Saved ',household,', returning home.');
+      this.router.navigate(['/']);
+    })
   }
 }
