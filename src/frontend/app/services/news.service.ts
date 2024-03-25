@@ -6,11 +6,13 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class NewsService {
-  nextId = 0;
+  nextId = 1;
+  news: News[] = [];
   constructor() { }
   createNews(news: News): Observable<News> {
     news.news_id = this.nextId++;
     this.news.push(news);
+    console.log(this.nextId)
 
     return of(news);
 }

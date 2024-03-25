@@ -7,8 +7,9 @@ export const routes: Routes = [
     path: 'create-household',
     component: CreateHouseholdComponent,
   },
+  
   {
-    path: 'add-news',
+    path: 'create-news',
     component: CreateNewsComponent,
   }
 ];
