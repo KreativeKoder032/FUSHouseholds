@@ -1,1 +1,44 @@
-<p>create-household works!</p>
+<h1>Add Household</h1>
+<div>
+  <label for="frame">Name</label>
+  <input id="name" [(ngModel)]="name">
+</div>
+<!--//TODO: active-->
+<!--//TODO: logo-->
+<div>
+  <label for="frame">Founding Year</label>
+  <input id="year" [(ngModel)]="year">
+</div>
+<div>
+  <label for="frame">Location</label>
+  <input id="location" [(ngModel)]="location">
+</div>
+<div>
+  <label for="frame">Household Verse</label>
+  <input id="verse" [(ngModel)]="verse">
+</div>
+<!--//TODO: saints-->
+<!--//TODO: pillars-->
+<!--//TODO: commitments-->
+<div>
+  <label for="frame">Household Covenant</label>
+  <input id="covenant" [(ngModel)]="covenant">
+</div>
+<div>
+  <label for="frame">Big/Little Title</label>
+  <input id="big_little_title" [(ngModel)]="big_little_title">
+</div>
+<div>
+  <label for="frame">Sibling Household</label>
+  <input id="sibling_household" [(ngModel)]="sibling_household">
+</div>
+<div>
+  <label for="frame">Description</label>
+  <input id="description" [(ngModel)]="description">
+</div>
+<!--//TODO: photos-->
+<!--//TODO: aesthetics-->
+<!--//TODO: news-->
+<div>
+  <input type="button" value="Add" (click)="save()">
+</div>
