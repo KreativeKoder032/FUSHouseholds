@@ -25,5 +25,6 @@ export class CreateNewsComponent {
     this.newsService.createNews(toSave).subscribe(news => {
       console.log('Saved ',news,', returning home.');
       this.router.navigate(['/']);
-  }
+  })
+}
 }
