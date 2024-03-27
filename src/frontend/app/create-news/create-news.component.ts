@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { NewsService } from '../services/news.service';
 import { Router } from '@angular/router';
 import { News } from '../../../models/news';
@@ -7,7 +7,7 @@ import { News } from '../../../models/news';
 @Component({
   selector: 'ng-create-news',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule],
   templateUrl: './create-news.component.html',
   styleUrl: './create-news.component.css'
 })
