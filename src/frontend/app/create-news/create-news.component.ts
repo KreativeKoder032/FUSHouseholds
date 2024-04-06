@@ -13,11 +13,6 @@ import { News } from '../../../models/news';
 })
 export class CreateNewsComponent {
   constructor(private newsService: NewsService, private router: Router) {}
-  /*newsForm = new FormGroup({
-    news_date: new FormControl(new Date().toISOString().slice(0, 10), Validators.required),
-    news_type: new FormControl('', Validators.required),
-    news_description: new FormControl('', Validators.required),
-  })*/
   news_description: string = "";
   news_type: string = "";
   news_date: Date = new Date();
