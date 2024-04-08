@@ -10,9 +10,9 @@
 
 
 export interface News {
-  news_id: number,
+  news_id?: number,
   news_description: string,
   news_type: string,
   news_date: Date,
-  news_time_stamp: Date,
+  news_time_stamp?: Date,
 }
