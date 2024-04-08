@@ -1,0 +1,9 @@
+<h2>List of Households</h2>
+<ul class="households">
+  <li *ngFor="let household of households">
+    <button type="button">
+      <span class="name">{{household.name}}: </span>
+      <span class="year">Est. {{household.year}}</span>
+    </button>
+  </li>
+</ul>
