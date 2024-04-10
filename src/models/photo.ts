@@ -16,7 +16,7 @@ export interface Photo {
   // String make up of the photo
   data : string,
   // Description
-  alternite : string,
+  alternate : string,
   // Currently being used
   active : boolean,
   // Image of a certian saint
@@ -25,4 +25,6 @@ export interface Photo {
   news_id? : News,
   // Ties photo to a household
   household_id? : Household,
+
+
 }
