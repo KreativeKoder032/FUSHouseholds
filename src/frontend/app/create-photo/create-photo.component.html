@@ -1,1 +1,16 @@
-<p>create-photo works!</p>
+<h1>Create Photo</h1>
+  <div>
+    <label for="frame">Photo Name</label>
+    <input id="name" [(ngModel)]="name">
+  </div>
+  <div>
+    <label for="frame">Type of photo</label>
+    <input id="type" [(ngModel)]="type">
+  </div>
+  <div>
+    <label for="frame">Display photo</label>
+    <input type="checkbox" id="active" [(ngModel)]="active">
+  </div>
+  <div>
+    <input type="button" value="Add" (click)="save()">
+  </div>
