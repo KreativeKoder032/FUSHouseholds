@@ -18,3 +18,14 @@ model User {
   email String  @unique
   name  String?
 }
+
+// TODO: add relations to News_has_Member, News_has_Household, and photo
+model News {
+  news_id Int @id @default(autoincrement())
+  news_description String
+  news_type String
+  news_date DateTime
+  news_time_stamp DateTime
+
+  @@unique(news_description)
+}
