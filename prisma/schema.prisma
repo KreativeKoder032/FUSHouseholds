@@ -24,8 +24,8 @@ model News {
   news_id Int @id @default(autoincrement())
   news_description String
   news_type String
-  news_date Int
-  news_time_stamp Int
+  news_date DateTime
+  news_time_stamp DateTime
 
   @@unique(news_description)
 }
