@@ -5,8 +5,8 @@ import { News } from '../../models/news';
 const db = new PrismaClient
 
 //function connecting the service to the databse
-export async function createHousehold(new_household: News): Promise<News> {
-  return db.news.create({data: new_household}).then(convertNews);
+export async function createNews(new_news: News): Promise<News> {
+  return db.news.create({data: new_news}).then(convertNews);
 }
 
 export async function listNews(nameQuery: string): Promise<News[]> {
