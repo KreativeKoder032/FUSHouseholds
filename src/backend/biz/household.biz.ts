@@ -22,8 +22,8 @@ export async function listHouseholds(nameQuery: string): Promise<Household[]> {
       name: 'asc',
     },
   }).then(households => {
-    let householdModels: Household[] = [];
-    for (let h of households) {
+    const householdModels: Household[] = [];
+    for (const h of households) {
       householdModels.push(convertHousehold(h));
     }
     return householdModels;
@@ -32,7 +32,7 @@ export async function listHouseholds(nameQuery: string): Promise<Household[]> {
 
 // Converts the Household table from the database into the model for the front end
 function convertHousehold(fromDb: HouseholdDB): Household {
-  let household: Household = {
+  const household: Household = {
     id: fromDb.id,
     name: fromDb.name,
     year: fromDb.year,
