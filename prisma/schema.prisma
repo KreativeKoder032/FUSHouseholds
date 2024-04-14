@@ -33,7 +33,7 @@ model News {
 model Household {
   id                  Int       @id @default(autoincrement())
   active              Boolean?
-  name                String    @unique
+  name                String
   year                Int
   location            String?
   verse               String
@@ -46,4 +46,5 @@ model Household {
   //TODO: Add Photo []
   //TODO: Add Aesthetics
   //TODO: Add News
+  @@unique([name])
 }
