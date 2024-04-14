@@ -25,6 +25,7 @@ export interface Household {
   id?: number,
   // Indicates whether Household is active
   active?: boolean,
+  sex: string,
   // Household Name
   name: string,
   // Household Logo
