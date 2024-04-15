@@ -22,11 +22,7 @@ export async function listHouseholds(nameQuery: string): Promise<Household[]> {
       name: 'asc',
     },
   }).then(households => {
-    const householdModels: Household[] = [];
-    for (const h of households) {
-      householdModels.push(convertHousehold(h));
-    }
-    return householdModels;
+    return households.map(convertHousehold);
   });
 }
 

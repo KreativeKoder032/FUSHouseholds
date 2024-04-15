@@ -30,6 +30,14 @@ async function list(): Promise<Household[]> {
   return listHouseholds("");
 }
 
-async function search(nameQuery: string): Promise<Household[]> {
+async function search(ctxt: Context): Promise<Household[] | null> {
+  if (!ctxt) {
+    return null;
+  }
+  const nameQuery = new String(ctxt.query['q'] || '').trim();
+  if (!nameQuery || nameQuery.length < 3) {
+    console.log("Need a longer query than ", nameQuery, " from ", ctxt.query)
+    return null;
+  }
   return listHouseholds(nameQuery);
 }
