@@ -8,7 +8,7 @@ import { Household } from "./household";
 
 export interface Photo {
   // Unique photo id
-  id : number,
+  id? : number,
   // Photo name
   name : string,
   // What type of photo {Logo, Household, Member, News, Saint, Household_Normal}

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Photo } from '../../../models/photo';
 import { Observable, of } from 'rxjs';
-import { InvalidCookieSignature } from 'elysia';
 
 @Injectable({
   providedIn: 'root'
