@@ -1,4 +1,5 @@
 import {Elysia} from 'elysia'
+import { configureHouseholdRoutes } from './controller/household.controller';
 
 const PORT = process.env['LISTEN_PORT'];
 console.log(`Listening on port ${PORT}`);
@@ -11,4 +12,5 @@ new Elysia()
     const fallBackFile = Bun.file(`./${STATIC_ROOT}/index.html`);
     return (await staticFile.exists()) ? staticFile : fallBackFile;
   })
+  .group("/api/households", configureHouseholdRoutes)
   .listen(PORT);

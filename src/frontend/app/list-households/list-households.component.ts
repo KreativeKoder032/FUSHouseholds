@@ -22,17 +22,4 @@ export class ListHouseholdsComponent implements OnInit {
   getHouseholds(): void {
     this.householdService.getHouseholds().subscribe(households => this.households = households);
   }
-
-  /*households: Household[] = [
-    {
-      id: 1,
-      name: "Conquer Through Love",
-      year: 1991,
-      location: "1st Floor Louis Hall",
-      verse: "We believe that love...",
-      covenant: "etc",
-      big_little_title: "Love Bear/Love Cub",
-    }
-  ]*/
-
 }

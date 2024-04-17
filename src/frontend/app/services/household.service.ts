@@ -1,32 +1,26 @@
-//import { HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Household } from '../../../models/household';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HouseholdService {
 
-  households: Household[] = [];
-  nextId: number = 1;
   //private url = 'http://localhost:3000';
 
-  constructor() { }
-  //constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   createHousehold(household: Household): Observable<Household> {
-    //TODO: call the webserver
-    household.id = this.nextId++;
-    this.households.push(household);
-    console.log(this.nextId)
+    return this.http.post<Household>("/api/households/create", household);
+  }
 
-    return of(household);
-  }
   getHouseholds(): Observable<Household[]> {
-    return of(this.households);
+    return this.http.get<Household[]>("/api/households/")
   }
-  /*listHouseholds(query: string): Observable<Household[]> {
-    return this.http.get<Household[]>(`${this.url}?q=${query}`);
-  }*/
+  
+  findHouseholds(query: string): Observable<Household[]> {
+    return this.http.get<Household[]>(`/api/households/search?q=${query}`);
+  }
 }
