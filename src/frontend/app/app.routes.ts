@@ -3,16 +3,20 @@ import { CreateHouseholdComponent } from './create-household/create-household.co
 import { ListHouseholdsComponent } from './list-households/list-households.component';
 import { CreateNewsComponent } from './create-news/create-news.component';
 import { CreatePhotoComponent } from './create-photo/create-photo.component';
+import { ListNewsComponent } from './list-news/list-news.component';
 
 export const routes: Routes = [
   {
     path: 'create-household',
     component: CreateHouseholdComponent,
   },
-  
   {
     path: 'create-news',
     component: CreateNewsComponent,
+  },
+  {
+    path: 'list-news',
+    component: ListNewsComponent,
   },
   {
     path: 'list-households',
