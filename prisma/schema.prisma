@@ -31,16 +31,19 @@ model News {
 }
 
 model Household {
-  id                  Int       @id @default(autoincrement())
-  active              Boolean?
-  name                String
-  year                Int
-  location            String?
-  verse               String
-  covenant            String
-  big_little_title    String?
-  //TODO: Add sibling_household
-  description         String?
+  id                Int        @id @default(autoincrement())
+  active            Boolean
+  name              String     @unique
+  sex               String
+  year              Int
+  location          String?
+  verse             String
+  covenant          String
+  big_little_title  String?
+  sibling_household Household? @relation("SiblingHousehold", fields: [siblingId], references: [id])
+  self_sibling      Household? @relation("SiblingHousehold")
+  siblingId         Int?       @unique
+  description       String?
   //TODO: Add Saint[]
   //TODO: Add Pillar[]
   //TODO: Add Photo []
