@@ -1,0 +1,11 @@
+<h1>List of News</h1>
+<!--ul holds lists, li is a list-->
+<ul class="newsli">
+  <li *ngFor="let news of newsli">
+    <button type="button">
+      <span class="type">{{news.news_type}}</span>
+      <span class="date">{{news.news_date}}</span>
+      <span class="description">{{news.news_description}}</span>      
+    </button>
+  </li>
+</ul>
