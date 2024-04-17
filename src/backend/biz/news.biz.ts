@@ -12,12 +12,12 @@ export async function createNews(new_news: News): Promise<News> {
 export async function listNews(nameQuery: string): Promise<News[]> {
   return db.news.findMany({
     where: {
-      name: {
+      news_description: {
         contains: nameQuery,
       },
     },
     orderBy: {
-      name: 'asc',
+      news_description: 'asc',
     },
   }).then(news => { //might be newsli
     let newsModels: News[] = [];
@@ -29,16 +29,12 @@ export async function listNews(nameQuery: string): Promise<News[]> {
 
   //Converts the News table from the database into the model for the front end
   function convertNews(fromDb: NewsDB): News {
-    let news: News = {
-      description: fromDb.news_description,
-      type: fromDb.news_type,
-      date: fromDb.news_date,
-    }
-    if (fromDb.news_id) {
-      id = fromDb.news_id;
-    }
-    if (fromDb.news_time_stamp) {
-      timestamp = fromDb.news_time_stamp;
+    const news: News = {
+      news_description: fromDb.news_description,
+      news_type: fromDb.news_type,
+      news_date: fromDb.news_date,
+      news_id: fromDb.news_id,
+      news_time_stamp: fromDb.news_time_stamp,
     }
   
     return news;  
