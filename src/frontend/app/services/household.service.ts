@@ -19,6 +19,7 @@ export class HouseholdService {
   getHouseholds(): Observable<Household[]> {
     return this.http.get<Household[]>("/api/households/")
   }
+  
   findHouseholds(query: string): Observable<Household[]> {
     return this.http.get<Household[]>(`/api/households/search?q=${query}`);
   }
