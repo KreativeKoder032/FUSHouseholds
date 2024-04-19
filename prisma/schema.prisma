@@ -47,7 +47,37 @@ model Household {
 
   //TODO: Add Saint[]
   //TODO: Add Pillar[]
-  //TODO: Add Photo []
+
+  model Photo {
+  id     Int    @id @default(autoincrement())
+
+  // Photo name
+  name  String
+
+  // What type of photo {Logo, Household, Member, News, Saint, Household_Normal}
+  type  String
+
+  // Bytes make up of the photo
+  data  Bytes
+
+  // Description
+  alternate String
+
+  // Currently being used
+  active  Boolean
+
+  // Image of a certian saint
+    //saint Saint
+
+  // Household news
+  news_id  Int?
+    //TODO relation to news
+
+  // Ties photo to a household
+  household_id Int?
+    //TODO relation to household
+}
+
   //TODO: Add Aesthetics
   //TODO: Add News
   @@unique([name])
