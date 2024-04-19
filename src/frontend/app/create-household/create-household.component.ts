@@ -17,7 +17,8 @@ export class CreateHouseholdComponent {
 
   name: string = '';
   //TODO: logo
-  //TODO: active
+  active: boolean = true;
+  sex: string = '';
   year: string = '';
   location: string = '';
   verse: string = '';
@@ -35,11 +36,13 @@ export class CreateHouseholdComponent {
   save(): void {
     const toSave: Household = {
       name: this.name,
+      sex: this.sex,
       year: parseInt(this.year),
       active: true, //temporary
       verse: this.verse,
       covenant: this.covenant,
     }
+
     if (this.location) {
       toSave.location = this.location;
     }
@@ -52,9 +55,14 @@ export class CreateHouseholdComponent {
     if (this.description) {
       toSave.description = this.description;
     }
-    this.householdService.createHousehold(toSave).subscribe(household => {
-      console.log('Saved ',household,', returning home.');
-      this.router.navigate(['/']);
-    })
+    if (this.sex == "Male" || this.sex == "Female") {
+      this.householdService.createHousehold(toSave).subscribe(household => {
+        console.log('Saved ',household,', returning home.');
+        this.router.navigate(['/']);
+      })
+    }
+    else {
+      console.log("Please specify the sex associated with the Household. ", this.sex, " is an invalid input")
+    }
   }
 }
