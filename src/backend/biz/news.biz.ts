@@ -20,12 +20,12 @@ export async function listNews(nameQuery: string): Promise<News[]> {
       news_description: 'asc',
     },
   }).then(news => { //might be newsli
-    let newsModels: News[] = [];
-    for (let n of news) { //same here
+    const newsModels: News[] = [];
+    for (const n of news) { //same here
       newsModels.push(convertNews(n));
     }
     return newsModels;
-  });
+  });}
 
   //Converts the News table from the database into the model for the front end
   function convertNews(fromDb: NewsDB): News {
@@ -39,4 +39,3 @@ export async function listNews(nameQuery: string): Promise<News[]> {
   
     return news;  
   }
-}

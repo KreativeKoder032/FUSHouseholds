@@ -23,9 +23,9 @@ model User {
 model News {
   news_id          Int      @id @default(autoincrement())
   news_description String
-  news_type        String
-  news_date        DateTime
-  news_time_stamp  DateTime
+  news_type String
+  news_date DateTime
+  news_time_stamp DateTime @updatedAt
 
   @@unique(news_description)
 }
