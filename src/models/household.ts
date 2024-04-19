@@ -24,7 +24,7 @@ export interface Household {
   // Unique ID number for this Household
   id?: number,
   // Indicates whether Household is active
-  active?: boolean,
+  active: boolean,
   sex: string,
   // Household Name
   name: string,
@@ -47,7 +47,7 @@ export interface Household {
   // Household Big/Little Title
   big_little_title?: string,
   // Sibling Household
-  sibling_household?: Household,
+  siblingId?: number,
   // Household Description
   description?: string,
   // Household Photos
