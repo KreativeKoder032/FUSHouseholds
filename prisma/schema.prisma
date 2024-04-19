@@ -49,7 +49,7 @@ model Household {
   //TODO: Add Pillar[]
 
   model Photo {
-  id     Int    @id @default(autoincrement())
+  id     Int?    @id @default(autoincrement())
 
   // Photo name
   name  String
@@ -80,5 +80,5 @@ model Household {
 
   //TODO: Add Aesthetics
   //TODO: Add News
-  @@unique([name])
+  //@@unique([name])
 }
