@@ -1,8 +1,8 @@
 import { Elysia, Context, t } from "elysia";
 import { News } from "../../models/news";
-import {createNews, listNews} from "../biz/player.biz";
+import {createNews, listNews} from "../biz/news.biz";
 
-export function configurePlayerRoutes(app: Elysia) {
+export function configureNewsRoutes(app: Elysia) {
   return app
     .model({news: t.Object({
       news_description: t.String(),
@@ -17,7 +17,7 @@ export function configurePlayerRoutes(app: Elysia) {
 }
 
 // You can test this with
-// curl -H "Content-Type: application/json" -X POST http://localhost:3000/players/create -d '{"fname": "Robert", "lname": "Zaleski"}'
+// curl -H "Content-Type: application/json" -X POST http://localhost:3000/news/create -d '{"fname": "Robert", "lname": "Zaleski"}'
 async function create(ctxt: Context): Promise<News> {
   return createNews(ctxt.body as News);
 }
