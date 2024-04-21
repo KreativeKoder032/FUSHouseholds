@@ -1,5 +1,6 @@
 import {Elysia} from 'elysia'
 import { configureHouseholdRoutes } from './controller/household.controller';
+import { configureNewsRoutes } from './controller/news.controller';
 
 const PORT = process.env['LISTEN_PORT'];
 console.log(`Listening on port ${PORT}`);
@@ -13,4 +14,5 @@ new Elysia()
     return (await staticFile.exists()) ? staticFile : fallBackFile;
   })
   .group("/api/households", configureHouseholdRoutes)
+  .group("/api/news", configureNewsRoutes)
   .listen(PORT);
