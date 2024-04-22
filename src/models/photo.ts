@@ -1,6 +1,3 @@
-import { News } from "./news";
-import { Household } from "./household";
-
 //LATER
 //news
 //saint
