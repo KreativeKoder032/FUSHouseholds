@@ -14,7 +14,7 @@ export interface Photo {
   // What type of photo {Logo, Household, Member, News, Saint, Household_Normal}
   type : string,
   // String make up of the photo
-  data : string,
+  data : Buffer,
   // Description
   alternate : string,
   // Currently being used
@@ -22,9 +22,9 @@ export interface Photo {
   // Image of a certian saint
     //saint : Saint,
   // Household news
-  news_id? : News,
+  news_id? : number,
   // Ties photo to a household
-  household_id? : Household,
+  household_id? : number,
 
 
 }

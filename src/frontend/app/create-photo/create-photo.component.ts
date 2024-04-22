@@ -25,7 +25,7 @@ export class CreatePhotoComponent {
       type: this.type,
       //TODO
       //id: 0,
-      data: '',
+      data: Buffer.alloc(0),
       alternate: '',
       //TODO
       active: this.active,
