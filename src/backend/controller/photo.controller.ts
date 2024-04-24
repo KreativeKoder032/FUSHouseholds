@@ -22,14 +22,20 @@ export function configurePhotoRoutes(app: Elysia) {
 }
 
 async function create(ctxt: Context): Promise<Photo> {
+  console.log(ctxt.body);
+  log(ctxt.body);
   return createPhoto(ctxt.body as Photo);  
 }
 
 async function list(): Promise<Photo[]> {
+  console.log("list");
+  log("list");
   return listPhotos("");
 }
 
 async function search(ctxt: Context): Promise<Photo[] | null> {
+  console.log(ctxt.body);
+  log(ctxt.body);
   if (!ctxt) {
     return null;
   }
@@ -39,4 +45,13 @@ async function search(ctxt: Context): Promise<Photo[] | null> {
     return null;
   }
   return listPhotos(nameQuery);
+}
+
+function log(text : any){
+  const fs = require('fs');
+  const filePath = 'output.txt';
+
+  // Write data to file
+  fs.writeFile(filePath, text);
+  console.log(text);
 }

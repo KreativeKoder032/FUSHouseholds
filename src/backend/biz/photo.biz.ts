@@ -31,10 +31,22 @@ function convertPhoto(fromDb: PhotoDB): Photo {
   const photo: Photo = {
     id: fromDb.id,
     name: fromDb.name,
-    type: fromDb.type,
-    data: fromDb.data,
-    alternate: fromDb.alternate,
-    active: fromDb.active,
+    //type: fromDb.type,
+    //data: fromDb.data,
+    //alternate: fromDb.alternate,
+    //active: fromDb.active,
+  }
+  if (fromDb.active){
+    photo.active = fromDb.active;
+  }
+  if (fromDb.alternate){
+    photo.alternate = fromDb.alternate;
+  }
+  if (fromDb.data){
+    photo.data = fromDb.data;
+  }
+  if (fromDb.type){
+    photo.type = fromDb.type;
   }
   if (fromDb.news_id) {
     photo.news_id = fromDb.news_id;

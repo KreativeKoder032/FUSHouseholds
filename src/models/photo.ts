@@ -9,13 +9,13 @@ export interface Photo {
   // Photo name
   name : string,
   // What type of photo {Logo, Household, Member, News, Saint, Household_Normal}
-  type : string,
+  type? : string,
   // String make up of the photo
-  data : Buffer,
+  data? : Buffer,
   // Description
-  alternate : string,
+  alternate? : string,
   // Currently being used
-  active : boolean,
+  active? : boolean,
   // Image of a certian saint
     //saint : Saint,
   // Household news
