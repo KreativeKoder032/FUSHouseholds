@@ -1,4 +1,4 @@
-import { PrismaClient, Household as HouseholdDB, Prisma } from "@prisma/client";
+import { PrismaClient, Household as HouseholdDB } from "@prisma/client";
 import { Household } from "../../models/household";
 
 
