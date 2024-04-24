@@ -16,6 +16,7 @@ export async function createHousehold(new_household: Household): Promise<Househo
     console.error(error_message);
     const error = new Error();
     error.message = error_message;
+    error.name = "INVALID_DATA";
     throw error;
     ;
   };
