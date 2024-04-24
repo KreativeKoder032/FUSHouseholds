@@ -47,8 +47,22 @@ model Household {
 
   //TODO: Add Saint[]
   //TODO: Add Pillar[]
-  //TODO: Add Photo []
   //TODO: Add Aesthetics
   //TODO: Add News
   @@unique([name])
+}
+
+model Photo {
+  id                Int        @id @default(autoincrement())
+  name              String
+  type              String
+  data              Bytes
+  alternate         String
+  active            Boolean
+  //saint           Saint
+  //news_id           Int?
+  //household_id      Int?
+  
+  //TODO relation to household
+  //TODO relation to news
 }
