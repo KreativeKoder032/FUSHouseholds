@@ -60,8 +60,8 @@ model Photo {
   alternate         String
   active            Boolean
   //saint           Saint
-  news_id           Int?
-  household_id      Int?
+  //news_id           Int?
+  //household_id      Int?
   
   //TODO relation to household
   //TODO relation to news
