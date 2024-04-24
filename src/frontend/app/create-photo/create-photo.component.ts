@@ -20,17 +20,18 @@ export class CreatePhotoComponent {
   active: boolean = false;
 
   save(): void {
+    console.log("Hello")
     const toSave: Photo = {
       name: this.name,
       type: this.type,
       //TODO
       //id: 0,
-      data: Buffer.alloc(0),
+      //data: Buffer.alloc(0),
       alternate: '',
       //TODO
       active: this.active,
     }
-    
+    alert(toSave.name);
     this.photoService.createPhoto(toSave).subscribe(photo => {
       console.log('Saved ',photo,', returning home.');
       this.router.navigate(['/']);

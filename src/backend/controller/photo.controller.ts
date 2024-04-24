@@ -9,19 +9,18 @@ export function configurePhotoRoutes(app: Elysia) {
   return app
     .model({photo: t.Object({
       name: t.String(),
-      type: t.String(),
-      data: t.String(),
-      alternate: t.String(),
-      active: t.Boolean(),
-      news_id: t.Optional(t.Integer()),
-      household_id: t.Optional(t.Integer())
+      type: t.Optional(t.String()),
+      data: t.Optional(t.Uint8Array()),
+      alternate: t.Optional(t.String()),
+      active: t.Optional(t.Boolean()),
     })})
     .post("create", create, {body: "photo"})
-    .get("/", list)
-    .get("/search", search);
+    //.get("/", list)
+    //.get("/search", search);
 }
 
 async function create(ctxt: Context): Promise<Photo> {
+  throw new Error("Boom");
   console.log(ctxt.body);
   log(ctxt.body);
   return createPhoto(ctxt.body as Photo);  
@@ -49,7 +48,7 @@ async function search(ctxt: Context): Promise<Photo[] | null> {
 
 function log(text : any){
   const fs = require('fs');
-  const filePath = 'output.txt';
+  const filePath = 'C:/Users/chris/Downloads/output.txt';
 
   // Write data to file
   fs.writeFile(filePath, text);

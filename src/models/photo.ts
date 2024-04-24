@@ -19,9 +19,7 @@ export interface Photo {
   // Image of a certian saint
     //saint : Saint,
   // Household news
-  news_id? : number,
+  //news_id? : number,
   // Ties photo to a household
-  household_id? : number,
-
-
+  //household_id? : number,
 }

@@ -48,12 +48,5 @@ function convertPhoto(fromDb: PhotoDB): Photo {
   if (fromDb.type){
     photo.type = fromDb.type;
   }
-  if (fromDb.news_id) {
-    photo.news_id = fromDb.news_id;
-  }
-  if (fromDb.household_id) {
-    photo.household_id = fromDb.household_id;
-  }
-
   return photo;
 }
