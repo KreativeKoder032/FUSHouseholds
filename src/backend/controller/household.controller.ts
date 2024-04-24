@@ -17,11 +17,10 @@ export function configureHouseholdRoutes(app: Elysia) {
       big_little_title: t.Optional(t.String()),
       description: t.Optional(t.String())
     })})
-    .onError(({ code, error }) => {
-      if (error.name == "INVALID_DATA") {
-        return error.message;
-      }
+    .onError(({ error }) => {
+      return error.message;
     })
+    .listen(3000)
     .post("create", create, {body: "household"})
     .get("/", list)
     .get("/search", search);
