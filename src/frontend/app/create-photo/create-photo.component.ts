@@ -3,6 +3,7 @@ import { Photo } from '../../../models/photo';
 import { PhotoService } from '../services/photo.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { Buffer } from 'buffer';
 
 @Component({
   selector: 'ng-create-photo',
@@ -20,13 +21,12 @@ export class CreatePhotoComponent {
   active: boolean = false;
 
   save(): void {
-    console.log("Hello")
     const toSave: Photo = {
       name: this.name,
       type: this.type,
       //TODO
       //id: 0,
-      //data: Buffer.alloc(0),
+      //` data: new Uint8Array([42,32]),
       alternate: '',
       //TODO
       active: this.active,
@@ -38,3 +38,4 @@ export class CreatePhotoComponent {
     })
   }
 }
+

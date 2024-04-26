@@ -42,9 +42,9 @@ function convertPhoto(fromDb: PhotoDB): Photo {
   if (fromDb.alternate){
     photo.alternate = fromDb.alternate;
   }
-  if (fromDb.data){
-    photo.data = fromDb.data;
-  }
+  // if (fromDb.data){
+  //   photo.data = fromDb.data;
+  // }
   if (fromDb.type){
     photo.type = fromDb.type;
   }
