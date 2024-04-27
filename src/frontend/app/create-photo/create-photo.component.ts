@@ -46,7 +46,9 @@ export class CreatePhotoComponent {
       fileReader.readAsDataURL(this.photofile); 
     }
   } 
-  onfileselected(event : any): void {
-    this.photofile = event.target.files[0];
+  onfileselected(event: Event): void {
+    const target = event.target as HTMLInputElement;
+    const files = target.files as FileList; 
+    this.photofile = files[0];
   }
 }
