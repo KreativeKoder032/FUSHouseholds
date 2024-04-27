@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CreatePhotoComponent } from './create-photo.component';
 
 describe('CreatePhotoComponent', () => {
@@ -8,7 +8,7 @@ describe('CreatePhotoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CreatePhotoComponent]
+      imports: [CreatePhotoComponent, HttpClientTestingModule]
     })
     .compileComponents();
     
