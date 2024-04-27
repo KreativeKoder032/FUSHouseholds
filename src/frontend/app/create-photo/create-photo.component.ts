@@ -22,27 +22,21 @@ export class CreatePhotoComponent {
 
   save(): void {
 
-    let uintArray: Uint8Array | null = null; 
-    let fileReader = new FileReader;
+    const fileReader = new FileReader;
 
-    fileReader.onload = (event) => {
-      const encodedImage = fileReader.result as String;
-      //const uintArray = new Uint8Array(arrayBuffer);
-      
-      // 'uintArray' now contains the byte array representation of the file
+    fileReader.onload = () => {
+      const encodedImage = fileReader.result as string;
       console.log(encodedImage);
 
       const toSave: Photo = {
         name: this.name,
         type: this.type,
-        //TODO
-        //id: 0,
         data: encodedImage,
+        //TODO
         alternate: '',
         //TODO
         active: this.active,
       }
-      // alert(toSave.name);
       this.photoService.createPhoto(toSave).subscribe(photo => {
         console.log('Saved ',photo,', returning home.');
         this.router.navigate(['/']);
