@@ -16,7 +16,7 @@ export interface Photo {
   // Description
   alternate? : string,
   // Currently being used
-  //active? : boolean,
+  active : boolean,
   // Image of a certian saint
     //saint : Saint,
   // Household news

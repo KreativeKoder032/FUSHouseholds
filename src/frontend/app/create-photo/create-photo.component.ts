@@ -34,6 +34,7 @@ export class CreatePhotoComponent {
         description: this.description,
         data: encodedImage,
         alternate: this.alternate,
+        active: true,
       }
       this.photoService.createPhoto(toSave).subscribe(photo => {
         console.log('Saved ',photo,', returning home.');

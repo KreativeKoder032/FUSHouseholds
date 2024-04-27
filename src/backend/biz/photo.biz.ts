@@ -17,6 +17,9 @@ export async function listPhotos(nameQuery: string): Promise<Photo[]> {
       name: {
         contains: nameQuery,
       },
+      active: {
+        equals: true,
+      },
     },
     orderBy: {
       name: 'asc',
@@ -32,6 +35,7 @@ function convertPhoto(fromDb: PhotoDB): Photo {
     id: fromDb.id,
     name: fromDb.name,
     data: fromDb.data,
+    active: fromDb.active,
   }
   if (fromDb.alternate){
     photo.alternate = fromDb.alternate;

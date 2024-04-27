@@ -58,7 +58,7 @@ model Photo {
   description       String?    @db.Text
   data              String     @db.LongText
   alternate         String?
-  //active          Boolean?
+  active            Boolean
   //saint           Saint
   //news_id         Int?
   //household_id    Int?

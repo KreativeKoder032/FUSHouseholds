@@ -13,6 +13,7 @@ export function configurePhotoRoutes(app: Elysia) {
       description: t.Optional(t.String()),
       data: t.String(),
       alternate: t.Optional(t.String()),
+      active: t.Boolean(),
     })})
     .post("create", create, {body: "photo"})
     .get("/", list)
