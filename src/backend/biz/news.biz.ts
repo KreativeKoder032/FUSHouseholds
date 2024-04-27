@@ -34,8 +34,12 @@ export async function listNews(nameQuery: string): Promise<News[]> {
       news_type: fromDb.news_type,
       news_date: fromDb.news_date,
       news_id: fromDb.news_id,
-      news_time_stamp: fromDb.news_time_stamp,
+      //news_time_stamp: fromDb.news_time_stamp,
     }
+    if (fromDb.news_time_stamp) {
+      news.news_time_stamp = fromDb.news_time_stamp;
+    }
+  
   
     return news;  
   }

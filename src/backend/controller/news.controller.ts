@@ -7,7 +7,7 @@ export function configureNewsRoutes(app: Elysia) {
     .model({news: t.Object({
       news_description: t.String(),
       news_type: t.String(),
-      news_date: t.Date(),
+      news_date: t.String(),
       news_id: t.Optional(t.Number()),
       news_time_stamp: t.Optional(t.Date())
     })})
