@@ -17,7 +17,8 @@ export class CreatePhotoComponent {
 
   name: string = "";
   type: string = "";
-  active: boolean = false;
+  description: string = "";
+  alternate: string = "";
   photofile: File | null = null;
 
   save(): void {
@@ -30,12 +31,9 @@ export class CreatePhotoComponent {
 
       const toSave: Photo = {
         name: this.name,
-        type: this.type,
+        description: this.description,
         data: encodedImage,
-        //TODO
-        alternate: '',
-        //TODO
-        active: this.active,
+        alternate: this.alternate,
       }
       this.photoService.createPhoto(toSave).subscribe(photo => {
         console.log('Saved ',photo,', returning home.');

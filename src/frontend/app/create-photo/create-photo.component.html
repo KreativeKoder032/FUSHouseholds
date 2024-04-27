@@ -5,12 +5,12 @@
       <input id="name" [(ngModel)]="name">
     </div>
     <div>
-      <label for="frame">Type of photo</label>
-      <input id="type" [(ngModel)]="type">
+      <label for="frame">Description of photo</label>
+      <input id="description" [(ngModel)]="description">
     </div>
     <div>
-      <label for="frame">Display photo</label>
-      <input type="checkbox" id="active" [(ngModel)]="active">
+      <label for="frame">Alternate of photo</label>
+      <input id="alternate" [(ngModel)]="alternate">
     </div>
     <div>
       <input type="file" value="Browse Files" (change)="onfileselected($event)">

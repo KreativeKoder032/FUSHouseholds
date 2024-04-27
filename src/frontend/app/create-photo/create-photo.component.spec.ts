@@ -26,9 +26,16 @@ describe('CreatePhotoComponent', () => {
     const app = fixture.debugElement.componentInstance;
     expect (app.name).toBeDefined();
   })
-  it('should ask for a type', () => {
+
+  it('should ask for a description', () => {
     const fixture = TestBed.createComponent(CreatePhotoComponent);
     const app = fixture.debugElement.componentInstance;
-    expect (app.type).toBeDefined();
+    expect (app.description).toBeDefined();
+  })
+  
+  it('should ask for a alternate', () => {
+    const fixture = TestBed.createComponent(CreatePhotoComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect (app.alternate).toBeDefined();
   })
 });

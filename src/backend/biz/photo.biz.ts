@@ -32,22 +32,12 @@ function convertPhoto(fromDb: PhotoDB): Photo {
     id: fromDb.id,
     name: fromDb.name,
     data: fromDb.data,
-    //type: fromDb.type,
-    //data: fromDb.data,
-    //alternate: fromDb.alternate,
-    //active: fromDb.active,
-  }
-  if (fromDb.active){
-    photo.active = fromDb.active;
   }
   if (fromDb.alternate){
     photo.alternate = fromDb.alternate;
   }
-  // if (fromDb.data){
-  //   photo.data = fromDb.data;
-  // }
-  if (fromDb.type){
-    photo.type = fromDb.type;
+  if (fromDb.description){
+    photo.description = fromDb.description;
   }
   return photo;
 }

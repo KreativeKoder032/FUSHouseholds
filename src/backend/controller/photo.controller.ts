@@ -10,10 +10,9 @@ export function configurePhotoRoutes(app: Elysia) {
   return app
     .model({photo: t.Object({
       name: t.String(),
-      type: t.Optional(t.String()),
+      description: t.Optional(t.String()),
       data: t.String(),
       alternate: t.Optional(t.String()),
-      active: t.Optional(t.Boolean()),
     })})
     .post("create", create, {body: "photo"})
     .get("/", list)
