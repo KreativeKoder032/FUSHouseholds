@@ -3,6 +3,7 @@ import { CreateHouseholdComponent } from './create-household/create-household.co
 import { ListHouseholdsComponent } from './list-households/list-households.component';
 import { CreateNewsComponent } from './create-news/create-news.component';
 import { CreatePhotoComponent } from './create-photo/create-photo.component';
+import { ListPhotosComponent } from './list-photos/list-photos.component';
 import { ListNewsComponent } from './list-news/list-news.component';
 
 export const routes: Routes = [
@@ -25,5 +26,9 @@ export const routes: Routes = [
   {
     path: 'create-photo',
     component: CreatePhotoComponent,
+  },
+  {
+    path: 'list-photos',
+    component: ListPhotosComponent,
   }
 ];

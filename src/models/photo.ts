@@ -11,7 +11,7 @@ export interface Photo {
   // What type of photo {Logo, Household, Member, News, Saint, Household_Normal}
   type? : string,
   // String make up of the photo
-  //data? : Uint8Array,
+  data : String,
   // Description
   alternate? : string,
   // Currently being used

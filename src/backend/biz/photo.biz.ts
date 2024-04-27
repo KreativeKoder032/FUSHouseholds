@@ -31,6 +31,7 @@ function convertPhoto(fromDb: PhotoDB): Photo {
   const photo: Photo = {
     id: fromDb.id,
     name: fromDb.name,
+    data: fromDb.data,
     //type: fromDb.type,
     //data: fromDb.data,
     //alternate: fromDb.alternate,

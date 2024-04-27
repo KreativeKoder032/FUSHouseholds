@@ -12,7 +12,7 @@ export function configurePhotoRoutes(app: Elysia) {
       name: t.String(),
       type: t.Optional(t.String()),
       //data: t.Optional(t.String()),
-      //data: t.Optional(t.Uint8Array()),
+      data: t.String(),
       alternate: t.Optional(t.String()),
       active: t.Optional(t.Boolean()),
     })})
@@ -23,6 +23,7 @@ export function configurePhotoRoutes(app: Elysia) {
 
 async function create(ctxt: Context): Promise<Photo> {
   console.log(ctxt.body);
+  console.log("create");
   //logger.info('create');
   return createPhoto(ctxt.body as Photo);  
 }
