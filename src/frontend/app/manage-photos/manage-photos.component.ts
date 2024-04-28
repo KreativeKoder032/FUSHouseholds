@@ -23,15 +23,15 @@ export class ManagePhotosComponent implements OnInit {
 
   update(): void {
 
-    let toSave: Photo[] = [];
+    const toSave: Photo[] = [];
     this.photos.forEach(item => {
-      let photo: Photo = {
+      const photo: Photo = {
         id: item.id,
         active: item.active,
       }
       toSave.push(photo)
     }); 
-    this.photoService.updatePhotos(toSave).subscribe(photo => {
+    this.photoService.updatePhotos(toSave).subscribe(() => {
       console.log('Updated photos, returning home.');
       this.router.navigate(['/']);
     })
