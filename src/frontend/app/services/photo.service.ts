@@ -12,13 +12,15 @@ export class PhotoService {
   constructor(private http: HttpClient) { }
 
   createPhoto(photo: Photo): Observable<Photo> {
-    //alert (photo.data);
-    // const headers = new HttpHeaders({
-    //   'Content-Type': 'application/json' // Set Content-Type header
-    // }); 
     return this.http.post<Photo>("/api/photos/create", photo);
   }
   getPhotos(): Observable<Photo[]> {
     return this.http.get<Photo[]>("/api/photos/")
+  }
+  managePhotos(): Observable<Photo[]> {
+    return this.http.get<Photo[]>("/api/photos/manage")
+  }
+  updatePhotos(photos: Photo[]): Observable<Photo[]> {
+    return this.http.patch<Photo[]>("/api/photos/update", photos);
   }
 }

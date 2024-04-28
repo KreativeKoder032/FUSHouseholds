@@ -7,12 +7,12 @@ export interface Photo {
   // Unique photo id
   id? : number,
   // Photo name
-  name : string,
+  name? : string,
   // What type of photo {Logo, Household, Member, News, Saint, Household_Normal}
   //type? : string,
   description? : string,
   // String make up of the photo
-  data : string,
+  data? : string,
   // Description
   alternate? : string,
   // Currently being used

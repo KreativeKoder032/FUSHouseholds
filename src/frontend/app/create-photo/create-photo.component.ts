@@ -16,7 +16,6 @@ export class CreatePhotoComponent {
   constructor(private photoService: PhotoService, private router: Router) {}
 
   name: string = "";
-  type: string = "";
   description: string = "";
   alternate: string = "";
   photofile: File | null = null;

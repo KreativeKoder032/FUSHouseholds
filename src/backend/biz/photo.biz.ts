@@ -29,6 +29,36 @@ export async function listPhotos(nameQuery: string): Promise<Photo[]> {
   });
 }
 
+export async function managePhotos(nameQuery: string): Promise<Photo[]> {
+  return db.photo.findMany({
+    where: {
+      name: {
+        contains: nameQuery,
+      },
+    },
+    orderBy: {
+      name: 'asc',
+    },
+  }).then(photos => {
+    return photos.map(convertPhoto);
+  });
+}
+
+export async function updatePhotos(updated_photos: Photo[]) {
+  updated_photos.forEach((photo) => {
+    console.log(photo);
+    const updateObject = {
+      where: {
+        id: photo.id,
+      },
+      data: {
+        active: photo.active,
+      }
+    }
+    db.photo.update(updateObject).then((value) => console.log(value));
+  })
+}
+
 // Converts the Photo table from the database into the model for the front end
 function convertPhoto(fromDb: PhotoDB): Photo {
   const photo: Photo = {

@@ -5,6 +5,7 @@ import { CreateNewsComponent } from './create-news/create-news.component';
 import { CreatePhotoComponent } from './create-photo/create-photo.component';
 import { ListPhotosComponent } from './list-photos/list-photos.component';
 import { ListNewsComponent } from './list-news/list-news.component';
+import { ManagePhotosComponent } from './manage-photos/manage-photos.component';
 
 export const routes: Routes = [
   {
@@ -30,5 +31,9 @@ export const routes: Routes = [
   {
     path: 'list-photos',
     component: ListPhotosComponent,
+  },
+  {
+    path: 'manage-photos',
+    component: ManagePhotosComponent,
   }
 ];
