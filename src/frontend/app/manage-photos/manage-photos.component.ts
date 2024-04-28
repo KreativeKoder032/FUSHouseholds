@@ -35,7 +35,7 @@ export class ManagePhotosComponent implements OnInit {
       console.log('Updated photos, returning home.');
       this.router.navigate(['/']);
     })
-  };
+  }
 
   ngOnInit(): void {
     this.getPhotos();
