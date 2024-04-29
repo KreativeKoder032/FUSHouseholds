@@ -7,14 +7,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class NewsService {
-  nextId = 1;
   newsli: News[] = [];
   constructor(private http: HttpClient) { }
   createNews(news: News): Observable<News> {
-    news.news_id = this.nextId++;
-    this.newsli.push(news);
-    console.log(this.nextId)
-
     return this.http.post<News>("/api/news/create", news);
 }
 
