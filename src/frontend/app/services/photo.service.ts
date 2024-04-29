@@ -1,26 +1,26 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Photo } from '../../../models/photo';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
+//import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PhotoService {
 
-  photos: Photo[] = [];
-  nextId: number = 1;
+  constructor(private http: HttpClient) { }
 
   createPhoto(photo: Photo): Observable<Photo> {
-    //TODO: test input validation
-    //TODO: call the webserver
-    photo.id = this.nextId++;
-    this.photos.push(photo);
-    console.log(this.nextId)
-
-    return of(photo);
+    return this.http.post<Photo>("/api/photos/create", photo);
   }
-  // getPhotos(): Observable<Photo[]> {
-  //   return of(this.photos);
-  // }
-  constructor() { }
+  getPhotos(): Observable<Photo[]> {
+    return this.http.get<Photo[]>("/api/photos/")
+  }
+  managePhotos(): Observable<Photo[]> {
+    return this.http.get<Photo[]>("/api/photos/manage")
+  }
+  updatePhotos(photos: Photo[]): Observable<Photo[]> {
+    return this.http.patch<Photo[]>("/api/photos/update", photos);
+  }
 }

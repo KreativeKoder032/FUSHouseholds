@@ -55,14 +55,17 @@ model Household {
 model Photo {
   id                Int        @id @default(autoincrement())
   name              String
-  type              String
-  data              Bytes
-  alternate         String
+  description       String?    @db.Text
+  data              String     @db.LongText
+  alternate         String?
   active            Boolean
   //saint           Saint
-  //news_id           Int?
-  //household_id      Int?
-  
+  //news_id         Int?
+  //household_id    Int?
+  //type            String?
+
   //TODO relation to household
   //TODO relation to news
+  //TODO household_id
+  //TODO news_id
 }

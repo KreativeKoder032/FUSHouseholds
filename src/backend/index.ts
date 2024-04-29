@@ -1,6 +1,7 @@
-import {Elysia} from 'elysia'
+import {Elysia} from 'elysia';
 import { configureHouseholdRoutes } from './controller/household.controller';
 import { configureNewsRoutes } from './controller/news.controller';
+import { configurePhotoRoutes } from './controller/photo.controller';
 
 const PORT = process.env['LISTEN_PORT'];
 console.log(`Listening on port ${PORT}`);
@@ -15,4 +16,5 @@ new Elysia()
   })
   .group("/api/households", configureHouseholdRoutes)
   .group("/api/news", configureNewsRoutes)
+  .group("/api/photos", configurePhotoRoutes)
   .listen(PORT);
