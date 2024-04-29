@@ -15,7 +15,7 @@ export function configureHouseholdRoutes(app: Elysia) {
       location: t.Optional(t.String()),
       verse: t.String(),
       covenant: t.String(),
-      siblingID: t.Integer(),
+      siblingID: t.Optional(t.Integer()),
       big_little_title: t.Optional(t.String()),
       description: t.Optional(t.String())
     })})
@@ -46,7 +46,7 @@ async function siblist(ctxt: Context): Promise<Household[] | null> {
     console.log("Need a longer query than ", siblingQuery, " from ", ctxt.query)
     return null;
   }
-  return listHouseholds(siblingQuery);
+  return findHouseholds(siblingQuery);
 }
 
 async function search(ctxt: Context): Promise<Household[] | null> {
@@ -58,5 +58,5 @@ async function search(ctxt: Context): Promise<Household[] | null> {
     console.log("Need a longer query than ", nameQuery, " from ", ctxt.query)
     return null;
   }
-  return findHouseholds(nameQuery);
+  return listHouseholds(nameQuery);
 }

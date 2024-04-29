@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Household } from '../../../models/household';
 import { HouseholdService } from '../services/household.service';
 import { HouseholdSelectorComponent } from '../household-selector/household-selector.component'
@@ -8,64 +8,76 @@ import { HouseholdSelectorComponent } from '../household-selector/household-sele
 @Component({
   selector: 'ng-create-household',
   standalone: true,
-  imports: [FormsModule, HouseholdSelectorComponent],
+  imports: [ReactiveFormsModule, HouseholdSelectorComponent],
   templateUrl: './create-household.component.html',
   styleUrl: './create-household.component.css'
 })
 export class CreateHouseholdComponent {
 
   constructor(private householdService: HouseholdService, private router: Router) {}
-
-  name: string = '';
-  //TODO: logo
-  active: boolean = true;
-  sex: string = '';
-  year: string = '';
-  location: string = '';
-  verse: string = '';
-  siblingId: number | null = null;
-  //TODO: saints
-  //TODO: pillars
-  //TODO: commitments
-  covenant: string = '';
-  big_little_title: string = '';
-  household_name: string = '';
-  sibling_household: Household | null = null;
-  description: string = '';
-  //TODO: photos
-  //TODO: aesthetics
-  //TODO: news
+  householdForm = new FormGroup({
+    name: new FormControl('', Validators.required),
+    sex: new FormControl('', Validators.required),
+    active: new FormControl<boolean>(true,Validators.required),
+    year: new FormControl<string>('', Validators.required),
+    location: new FormControl('', Validators.required),
+    verse: new FormControl('', Validators.required),
+    sibling_household_name: new FormControl('', Validators.required),
+    covenant: new FormControl('', Validators.required),
+    big_little_title: new FormControl('', Validators.required),
+    description: new FormControl('', Validators.required),
+  })
 
   save(): void {
+    if (!this.householdForm.value.name) {
+      throw "Household name is required.";
+    }
+    if (!this.householdForm.value.sex) {
+      throw "Household sex is required.";
+    }
+    if (!this.householdForm.value.year) {
+      throw "Household year is required.";
+    }
+    if (!this.householdForm.value.active) {
+      throw "Household active is required.";
+    }
+    if (!this.householdForm.value.verse) {
+      throw "Household verse is required.";
+    }
+    if (!this.householdForm.value.covenant) {
+      throw "Household covenant is required.";
+    }
+    let sibling_household: Household[] = [];
     const toSave: Household = {
-      name: this.name,
-      sex: this.sex,
-      year: parseInt(this.year),
-      active: this.active,
-      verse: this.verse,
-      covenant: this.covenant,
+      name: this.householdForm.value.name,
+      sex: this.householdForm.value.name,
+      year: parseInt(this.householdForm.value.year),
+      active: this.householdForm.value.active,
+      verse: this.householdForm.value.verse,
+      covenant: this.householdForm.value.covenant,
     }
 
-    if (this.location) {
-      toSave.location = this.location;
+    if (this.householdForm.value.location) {
+      toSave.location = this.householdForm.value.location;
     }
-    if (this.big_little_title) {
-      toSave.big_little_title = this.big_little_title;
+    if (this.householdForm.value.big_little_title) {
+      toSave.big_little_title = this.householdForm.value.big_little_title;
     }
-    if (this.siblingId) {
-      toSave.siblingId = this.siblingId;
+    if (this.householdForm.value.sibling_household_name) {
+      this.householdService.findHouseholds(this.householdForm.value.sibling_household_name).subscribe(households => sibling_household = households);
+      toSave.siblingId = sibling_household[0].id;
     }
-    if (this.description) {
-      toSave.description = this.description;
+    if (this.householdForm.value.description) {
+      toSave.description = this.householdForm.value.description;
     }
-    if (this.sex == "male" || this.sex == "female") {
+    if (this.householdForm.value.sex == "male" || this.householdForm.value.sex == "female") {
       this.householdService.createHousehold(toSave).subscribe(household => {
         console.log('Saved ',household,', returning home.');
         this.router.navigate(['/']);
       })
     }
     else {
-      console.log("Please specify the sex associated with the Household. ", this.sex, " is an invalid input")
+      console.log("Please specify the sex associated with the Household. ", this.householdForm.value.sex, " is an invalid input")
     }
   }
 }

@@ -35,7 +35,7 @@ export async function createHousehold(new_household: Household): Promise<Househo
 }
 
 // Creates a function to connect the HouseholdList component to the database (potential for search feature included)
-export async function listHouseholds(sexQuery?: string, idQuery?: number): Promise<Household[]> {
+export async function findHouseholds(sexQuery?: string, idQuery?: number): Promise<Household[]> {
   return db.household.findMany({
     where: {
       OR: [
@@ -59,7 +59,7 @@ export async function listHouseholds(sexQuery?: string, idQuery?: number): Promi
   });
 }
 
-export async function findHouseholds(nameQuery?: string): Promise<Household[]> {
+export async function listHouseholds(nameQuery?: string): Promise<Household[]> {
   return db.household.findMany({
     where: {
       OR: [
@@ -79,7 +79,7 @@ export async function findHouseholds(nameQuery?: string): Promise<Household[]> {
 }
 
 async function checkSibling(siblingId: number): Promise<Household> {
-  const household_list = await listHouseholds("", siblingId);
+  const household_list = await findHouseholds("", siblingId);
   return household_list[0];
 }
 
@@ -104,7 +104,7 @@ function convertHousehold(fromDb: HouseholdDB): Household {
     household.description = fromDb.description;
   }
   if (fromDb.siblingId) {
-    household.siblingId =fromDb.siblingId;
+    household.siblingId = fromDb.siblingId;
   }
 
   return household;

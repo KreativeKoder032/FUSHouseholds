@@ -1,4 +1,4 @@
-import { Component, ViewChild, Input, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { Household } from '../../../models/household';
 import { Dropdown, DropdownChangeEvent, DropdownModule } from 'primeng/dropdown';
 import { HouseholdService } from '../services/household.service';

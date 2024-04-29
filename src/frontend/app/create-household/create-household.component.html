@@ -1,54 +1,56 @@
 <h1>Add Household</h1>
-<div>
-  <label for="frame">Name</label>
-  <input id="name" [(ngModel)]="name">
-</div>
-<div>
-  <label for="frame">Sex</label>
-  <input type="radio" id="male" name="sex" value="male" [(ngModel)]="sex">
-  <label for="male">Male</label>
-  <input type="radio" id="female" name="sex" value="female" [(ngModel)]="sex">
-  <label for="female">Female</label>
-</div>
-<div>
-  <label for="frame">Active</label>
-  <input type="checkbox" id="active" [(ngModel)]="active">
-</div>
-<!--//TODO: logo-->
-<div>
-  <label for="frame">Founding Year</label>
-  <input id="year" [(ngModel)]="year">
-</div>
-<div>
-  <label for="frame">Location</label>
-  <input id="location" [(ngModel)]="location">
-</div>
-<div>
-  <label for="frame">Household Verse</label>
-  <input id="verse" [(ngModel)]="verse">
-</div>
-<!--//TODO: saints-->
-<!--//TODO: pillars-->
-<!--//TODO: commitments-->
-<div>
-  <label for="frame">Household Covenant</label>
-  <input id="covenant" [(ngModel)]="covenant">
-</div>
-<div>
-  <label for="frame">Big/Little Title</label>
-  <input id="big_little_title" [(ngModel)]="big_little_title">
-</div>
-<div>
-  <label for="frame">Sibling Household</label>
-  <ng-create-household id="household_name" [(ngModel)]="household_name"></ng-create-household>
-</div>
-<div>
-  <label for="frame">Description</label>
-  <input id="description" [(ngModel)]="description">
-</div>
-<!--//TODO: photos-->
-<!--//TODO: aesthetics-->
-<!--//TODO: news-->
-<div>
-  <input type="button" value="Add" (click)="save()">
-</div>
+<form [formGroup]="householdForm" (submit)="save()">
+  <div>
+    <label for="frame">Name</label>
+    <input id="name" formControlName="name">
+  </div>
+  <div>
+    <label for="frame">Sex</label>
+    <input type="radio" id="male" name="sex" value="male" formControlName="sex">
+    <label for="male">Male</label>
+    <input type="radio" id="female" name="sex" value="female" formControlName="sex">
+    <label for="female">Female</label>
+  </div>
+  <div>
+    <label for="frame">Active</label>
+    <input type="checkbox" id="active" formControlName="active">
+  </div>
+  <!--//TODO: logo-->
+  <div>
+    <label for="frame">Founding Year</label>
+    <input id="year" formControlName="year">
+  </div>
+  <div>
+    <label for="frame">Location</label>
+    <input id="location" formControlName="location">
+  </div>
+  <div>
+    <label for="frame">Household Verse</label>
+    <input id="verse" formControlName="verse">
+  </div>
+  <!--//TODO: saints-->
+  <!--//TODO: pillars-->
+  <!--//TODO: commitments-->
+  <div>
+    <label for="frame">Household Covenant</label>
+    <input id="covenant" formControlName="covenant">
+  </div>
+  <div>
+    <label for="frame">Big/Little Title</label>
+    <input id="big_little_title" formControlName="big_little_title">
+  </div>
+  <div>
+    <label for="frame">Sibling Household</label>
+    <ng-household-selector></ng-household-selector>
+  </div>
+  <div>
+    <label for="frame">Description</label>
+    <input id="description" formControlName="description">
+  </div>
+  <!--//TODO: photos-->
+  <!--//TODO: aesthetics-->
+  <!--//TODO: news-->
+  <div>
+    <button type="submit" [disabled]="!householdForm.valid">Save</button>
+  </div>
+</form>
