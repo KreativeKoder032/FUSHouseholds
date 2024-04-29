@@ -1,0 +1,10 @@
+<p-dropdown
+  #householdDropdown
+  displayProperty="name"
+  [editable]="true"
+  (onChange)="onChange($event)"
+  optionLabel="name"
+  [options]="households"
+  placeholder="Select a Household"
+  >
+</p-dropdown>

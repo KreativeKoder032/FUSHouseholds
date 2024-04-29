@@ -1,6 +1,6 @@
 import { Elysia, Context, t } from "elysia";
 import { Household } from "../../models/household";
-import { listHouseholds, createHousehold } from "../biz/household.biz";
+import { listHouseholds, createHousehold, findHouseholds } from "../biz/household.biz";
 
 /*@param app The Elysia App
 * @returns
@@ -10,10 +10,12 @@ export function configureHouseholdRoutes(app: Elysia) {
     .model({household: t.Object({
       active: t.Boolean(),
       name: t.String(),
+      sex: t.String(),
       year: t.Integer(),
       location: t.Optional(t.String()),
       verse: t.String(),
       covenant: t.String(),
+      siblingID: t.Integer(),
       big_little_title: t.Optional(t.String()),
       description: t.Optional(t.String())
     })})
@@ -23,6 +25,7 @@ export function configureHouseholdRoutes(app: Elysia) {
     .listen(3000)
     .post("create", create, {body: "household"})
     .get("/", list)
+    .get("/search/sibling", siblist)
     .get("/search", search);
 }
 
@@ -34,6 +37,18 @@ async function list(): Promise<Household[]> {
   return listHouseholds("");
 }
 
+async function siblist(ctxt: Context): Promise<Household[] | null> {
+  if (!ctxt) {
+    return null;
+  }
+  const siblingQuery = new String(ctxt.query['q'] || '').trim();
+  if (!siblingQuery || siblingQuery.length < 3) {
+    console.log("Need a longer query than ", siblingQuery, " from ", ctxt.query)
+    return null;
+  }
+  return listHouseholds(siblingQuery);
+}
+
 async function search(ctxt: Context): Promise<Household[] | null> {
   if (!ctxt) {
     return null;
@@ -43,5 +58,5 @@ async function search(ctxt: Context): Promise<Household[] | null> {
     console.log("Need a longer query than ", nameQuery, " from ", ctxt.query)
     return null;
   }
-  return listHouseholds(nameQuery);
+  return findHouseholds(nameQuery);
 }

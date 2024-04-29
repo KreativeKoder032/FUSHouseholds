@@ -24,4 +24,8 @@ export class HouseholdService {
   findHouseholds(query: string): Observable<Household[]> {
     return this.http.get<Household[]>(`/api/households/search?q=${query}`);
   }
+  
+  siblingHouseholds(query: string): Observable<Household[]> {
+    return this.http.get<Household[]>(`/api/household/search/sibling?q=${query}`);
+  }
 }

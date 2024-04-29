@@ -3,7 +3,17 @@
   <label for="frame">Name</label>
   <input id="name" [(ngModel)]="name">
 </div>
-<!--//TODO: active-->
+<div>
+  <label for="frame">Sex</label>
+  <input type="radio" id="male" name="sex" value="male" [(ngModel)]="sex">
+  <label for="male">Male</label>
+  <input type="radio" id="female" name="sex" value="female" [(ngModel)]="sex">
+  <label for="female">Female</label>
+</div>
+<div>
+  <label for="frame">Active</label>
+  <input type="checkbox" id="active" [(ngModel)]="active">
+</div>
 <!--//TODO: logo-->
 <div>
   <label for="frame">Founding Year</label>
@@ -30,7 +40,7 @@
 </div>
 <div>
   <label for="frame">Sibling Household</label>
-  <input id="sibling_household" [(ngModel)]="sibling_household">
+  <ng-create-household id="household_name" [(ngModel)]="household_name"></ng-create-household>
 </div>
 <div>
   <label for="frame">Description</label>
