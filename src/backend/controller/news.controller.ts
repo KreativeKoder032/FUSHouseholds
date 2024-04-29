@@ -19,7 +19,14 @@ export function configureNewsRoutes(app: Elysia) {
 // You can test this with
 // curl -H "Content-Type: application/json" -X POST http://localhost:3000/news/create -d '{"fname": "Robert", "lname": "Zaleski"}'
 async function create(ctxt: Context): Promise<News> {
-  return createNews(ctxt.body as News);
+  const body: News = ctxt.body as News;
+    const news: News = {
+      news_description: body.news_description,
+      news_type: body.news_type,
+      news_date: new Date(body.news_date),
+      news_id: body.news_id,
+    }
+  return createNews(news);
 }
 
 async function list(): Promise<News[]> {
