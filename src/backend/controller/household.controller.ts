@@ -22,7 +22,6 @@ export function configureHouseholdRoutes(app: Elysia) {
     .onError(({ error }) => {
       return error.message;
     })
-    .listen(3000)
     .post("create", create, {body: "household"})
     .get("/", list)
     .get("/search/sibling", siblist)

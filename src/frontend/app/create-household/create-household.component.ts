@@ -22,7 +22,7 @@ export class CreateHouseholdComponent {
     year: new FormControl<string>('', Validators.required),
     location: new FormControl('', Validators.required),
     verse: new FormControl('', Validators.required),
-    sibling_household_name: new FormControl('', Validators.required),
+    sibling_household_name: new FormControl(''),
     covenant: new FormControl('', Validators.required),
     big_little_title: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required),
@@ -50,7 +50,7 @@ export class CreateHouseholdComponent {
     let sibling_household: Household[] = [];
     const toSave: Household = {
       name: this.householdForm.value.name,
-      sex: this.householdForm.value.name,
+      sex: this.householdForm.value.sex,
       year: parseInt(this.householdForm.value.year),
       active: this.householdForm.value.active,
       verse: this.householdForm.value.verse,
@@ -63,10 +63,7 @@ export class CreateHouseholdComponent {
     if (this.householdForm.value.big_little_title) {
       toSave.big_little_title = this.householdForm.value.big_little_title;
     }
-    if (this.householdForm.value.sibling_household_name) {
-      this.householdService.findHouseholds(this.householdForm.value.sibling_household_name).subscribe(households => sibling_household = households);
-      toSave.siblingId = sibling_household[0].id;
-    }
+    
     if (this.householdForm.value.description) {
       toSave.description = this.householdForm.value.description;
     }

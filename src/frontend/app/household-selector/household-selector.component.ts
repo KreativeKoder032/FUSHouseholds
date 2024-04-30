@@ -27,11 +27,12 @@ export class HouseholdSelectorComponent implements OnInit{
   onChange(event: DropdownChangeEvent) {
     const value=event.value;
     if (typeof value == 'string' && value.length >3) {
-      this.householdService.siblingHouseholds(value)
+      this.householdService.findHouseholds(value)
     }
   }
   onShow() {
     const value = this.householdDropdown?.value;
-    console.log(value);
+    this.selectedHousehold = value
+    return this.selectedHousehold;
   }
 }
