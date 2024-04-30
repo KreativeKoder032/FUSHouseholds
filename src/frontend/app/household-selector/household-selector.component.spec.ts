@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { HouseholdSelectorComponent } from './household-selector.component';
 
 describe('HouseholdSelectorComponent', () => {
@@ -8,7 +8,7 @@ describe('HouseholdSelectorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HouseholdSelectorComponent]
+      imports: [HouseholdSelectorComponent, HttpClientTestingModule]
     })
     .compileComponents();
     

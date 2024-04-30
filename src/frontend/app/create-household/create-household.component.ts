@@ -47,7 +47,6 @@ export class CreateHouseholdComponent {
     if (!this.householdForm.value.covenant) {
       throw "Household covenant is required.";
     }
-    let sibling_household: Household[] = [];
     const toSave: Household = {
       name: this.householdForm.value.name,
       sex: this.householdForm.value.sex,

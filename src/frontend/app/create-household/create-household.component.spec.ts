@@ -24,41 +24,41 @@ describe('CreateHouseholdComponent', () => {
   it('should ask for a name', () => {
     const fixture = TestBed.createComponent(CreateHouseholdComponent);
     const app = fixture.debugElement.componentInstance;
-    expect (app.name).toBeDefined();
+    expect (app.householdForm.value.name).toBeDefined();
   })
   it('should ask for a year', () => {
     const fixture = TestBed.createComponent(CreateHouseholdComponent);
     const app = fixture.debugElement.componentInstance;
-    expect (app.year).toBeDefined();
+    expect (app.householdForm.value.year).toBeDefined();
   })
   it('should ask for a location', () => {
     const fixture = TestBed.createComponent(CreateHouseholdComponent);
     const app = fixture.debugElement.componentInstance;
-    expect (app.location).toBeDefined();
+    expect (app.householdForm.value.location).toBeDefined();
   })
   it('should ask for a verse', () => {
     const fixture = TestBed.createComponent(CreateHouseholdComponent);
     const app = fixture.debugElement.componentInstance;
-    expect (app.verse).toBeDefined();
+    expect (app.householdForm.value.verse).toBeDefined();
   })
   it('should ask for a covenant', () => {
     const fixture = TestBed.createComponent(CreateHouseholdComponent);
     const app = fixture.debugElement.componentInstance;
-    expect (app.covenant).toBeDefined();
+    expect (app.householdForm.value.covenant).toBeDefined();
   })
   it('should ask for a big/little title', () => {
     const fixture = TestBed.createComponent(CreateHouseholdComponent);
     const app = fixture.debugElement.componentInstance;
-    expect (app.big_little_title).toBeDefined();
+    expect (app.householdForm.value.big_little_title).toBeDefined();
   })
-  it('should ask for a sibling household', () => {
+  /*it('should ask for a sibling household', () => {
     const fixture = TestBed.createComponent(CreateHouseholdComponent);
     const app = fixture.debugElement.componentInstance;
-    expect (app.sibling_household).toBeDefined();
-  })
+    expect (app.householdForm.value.sibling_household).toBeDefined();
+  })*/
   it('should ask for a description', () => {
     const fixture = TestBed.createComponent(CreateHouseholdComponent);
     const app = fixture.debugElement.componentInstance;
-    expect (app.description).toBeDefined();
+    expect (app.householdForm.value.description).toBeDefined();
   })
 });

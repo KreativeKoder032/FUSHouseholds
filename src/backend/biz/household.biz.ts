@@ -18,8 +18,7 @@ export async function createHousehold(new_household: Household): Promise<Househo
     error.message = error_message;
     error.name = "INVALID_DATA";
     throw error;
-    ;
-  };
+  }
   if (new_household.siblingId != undefined) {
     const sibling_household = await checkSibling(new_household.siblingId)
     if (new_household.sex == sibling_household.sex) {
